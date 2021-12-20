@@ -18,6 +18,10 @@ body {
   background-color: aquamarine;
 }
 
+.square.red{
+  background-color: red;
+}
+
 .width-350,
 .width-450,
 .width-500 {
