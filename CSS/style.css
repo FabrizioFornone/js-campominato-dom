@@ -44,13 +44,22 @@ body {
 
 .lose-body {
   background-color: crimson;
+}
+
+.win-body {
+  background-color: aquamarine;
+}
+
+.lose-body,
+.win-body {
   opacity: 0.8;
   height: 100vh;
   position: relative;
 }
 
-.lose-msg {
-  background-color: rgba(0, 0, 0, 0.8);
+.lose-msg,
+.win-msg {
+  background-color: rgba(0, 0, 0, 0.6);
   position: absolute;
   left: 50%;
   top: 50%;
@@ -59,15 +68,20 @@ body {
   height: 100%;
 }
 
-.lose-msg > div {
+.lose-msg > div,
+.win-msg > div {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
 }
 
-.lose-msg button {
+.lose-msg  button {
   background-color: crimson;
+}
+
+.win-msg  button {
+  background-color: aquamarine;
 }
 
 .hide {

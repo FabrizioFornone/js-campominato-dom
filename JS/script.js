@@ -71,6 +71,11 @@ function easyBoxGenerator(container, insideNumber) {
   newBox.addEventListener("click", function () {
     if (!easyBombs.includes(insideNumber)) {
       this.classList.add("azure");
+      boxCounter++;
+      if (boxCounter === 100 - 16) {
+        body.classList.add("win-body");
+        winMsg.classList.remove("hide");
+      }
     } else {
       this.classList.add("red");
       body.classList.add("lose-body");
@@ -96,6 +101,11 @@ function mediumBoxGenerator(container, insideNumber) {
   newBox.addEventListener("click", function () {
     if (!mediumBombs.includes(insideNumber)) {
       this.classList.add("azure");
+      boxCounter++;
+      if (boxCounter === 81 - 16) {
+        body.classList.add("win-body");
+        winMsg.classList.remove("hide");
+      }
     } else {
       this.classList.add("red");
       body.classList.add("lose-body");
@@ -121,6 +131,11 @@ function hardBoxGenerator(container, insideNumber) {
   newBox.addEventListener("click", function () {
     if (!hardBombs.includes(insideNumber)) {
       this.classList.add("azure");
+      boxCounter++;
+      if (boxCounter === 49 - 16) {
+        body.classList.add("win-body");
+        winMsg.classList.remove("hide");
+      }
     } else {
       this.classList.add("red");
       body.classList.add("lose-body");
@@ -146,6 +161,8 @@ const body = document.getElementById("body");
 
 const loseMsg = document.querySelector(".lose-msg");
 
+const winMsg = document.querySelector(".win-msg");
+
 const button1 = document.getElementById("js-btn-hook1");
 
 const button2 = document.getElementById("js-btn-hook2");
@@ -153,6 +170,10 @@ const button2 = document.getElementById("js-btn-hook2");
 const button3 = document.getElementById("js-btn-hook3");
 
 const loseButton = document.getElementById("js-btn-lose");
+
+const winButton = document.getElementById("js-btn-win");
+
+let boxCounter = 0;
 
 // button1 genera ciclo for per creare griglia facile
 
@@ -172,8 +193,12 @@ button3.addEventListener("click", function () {
   newGame(stampHtml, 49, hardBoxGenerator);
 });
 
-// Evento per tentare un'altra partita
+// Eventi per tentare un'altra partita
 
 loseButton.addEventListener("click", function () {
+  window.location.reload();
+});
+
+winButton.addEventListener("click", function () {
   window.location.reload();
 });
