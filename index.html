@@ -17,7 +17,10 @@
     <div id="body" class="container-fluid">
       <!-- Header -->
       <header>
-        <h1 class="text-center py-2">Dom Championship</h1>
+        <div class="d-flex flex-column align-items-center text-white">
+          <h1 class="text-center py-2">Dom Championship</h1>
+          <div class="score"></div>
+        </div>
       </header>
       <!-- Nav Buttons -->
       <nav>
@@ -37,20 +40,18 @@
       </nav>
       <!-- Game -->
       <section>
-        <div class="p-5 border lose-msg hide">
-          <div class="text-center">
-            <h3 class="text-uppercase text-white">you lost!</h3>
+        <div class="lose-msg hide">
+          <div class="p-4 border rounded text-white text-center">
+            <h3 class="text-uppercase">you lost!</h3>
             <button id="js-btn-lose" class="btn text-white m-3">
               Do you want another chance?
             </button>
           </div>
         </div>
-        <div class="p-5 border win-msg hide">
-          <div class="text-center">
-            <h3 class="text-uppercase text-white">you won!</h3>
-            <button id="js-btn-win" class="btn m-3">
-              Another Match?
-            </button>
+        <div class="win-msg hide">
+          <div class="p-4 border rounded text-white text-center">
+            <h3 class="text-uppercase">you won!</h3>
+            <button id="js-btn-win" class="btn m-3">Another Match?</button>
           </div>
         </div>
       </section>

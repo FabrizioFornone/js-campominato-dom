@@ -1,5 +1,7 @@
 body {
-  background-color: cornsilk;
+  background-image: url("https://images3.alphacoders.com/920/920274.jpg");
+  background-size: cover;
+  height: 100vh;
 }
 
 /* classi JS */
@@ -12,6 +14,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .square.azure {
@@ -43,23 +46,22 @@ body {
 }
 
 .lose-body {
-  background-color: crimson;
+  background-color: rgba(218, 24, 24, 0.7);
+
 }
 
 .win-body {
-  background-color: aquamarine;
+  background-color: rgba(24, 212, 218, 0.7);
 }
 
 .lose-body,
 .win-body {
-  opacity: 0.8;
   height: 100vh;
   position: relative;
 }
 
 .lose-msg,
 .win-msg {
-  background-color: rgba(0, 0, 0, 0.6);
   position: absolute;
   left: 50%;
   top: 50%;
@@ -74,6 +76,7 @@ body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .lose-msg  button {

@@ -75,6 +75,7 @@ function easyBoxGenerator(container, insideNumber) {
       if (boxCounter === 100 - 16) {
         body.classList.add("win-body");
         winMsg.classList.remove("hide");
+        scoreMsg.innerHTML = `<h3> Il tuo punteggio è: ${boxCounter} </h3>`;
       }
     } else {
       this.classList.add("red");
@@ -105,6 +106,7 @@ function mediumBoxGenerator(container, insideNumber) {
       if (boxCounter === 81 - 16) {
         body.classList.add("win-body");
         winMsg.classList.remove("hide");
+        scoreMsg.innerHTML = `<h3> Il tuo punteggio è: ${boxCounter} </h3>`;
       }
     } else {
       this.classList.add("red");
@@ -135,6 +137,7 @@ function hardBoxGenerator(container, insideNumber) {
       if (boxCounter === 49 - 16) {
         body.classList.add("win-body");
         winMsg.classList.remove("hide");
+        scoreMsg.innerHTML = `<h3> Il tuo punteggio è: ${boxCounter} </h3>`;
       }
     } else {
       this.classList.add("red");
@@ -162,6 +165,8 @@ const body = document.getElementById("body");
 const loseMsg = document.querySelector(".lose-msg");
 
 const winMsg = document.querySelector(".win-msg");
+
+const scoreMsg = document.querySelector(".score");
 
 const button1 = document.getElementById("js-btn-hook1");
 
