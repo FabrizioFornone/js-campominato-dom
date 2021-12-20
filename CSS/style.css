@@ -41,3 +41,9 @@ body {
 .width-500 {
   width: 500px;
 }
+
+.lose-body {
+  background-color: red;
+  opacity: 0.8;
+  height: 100vh;
+}

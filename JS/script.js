@@ -73,6 +73,7 @@ function easyBoxGenerator(container, insideNumber) {
       this.classList.add("azure");
     } else {
       this.classList.add("red");
+      body.classList.add("lose-body")
     }
   });
 }
@@ -96,6 +97,8 @@ function mediumBoxGenerator(container, insideNumber) {
       this.classList.add("azure");
     } else {
       this.classList.add("red");
+      body.classList.add("lose-body")
+
     }
   });
 }
@@ -119,6 +122,8 @@ function hardBoxGenerator(container, insideNumber) {
       this.classList.add("azure");
     } else {
       this.classList.add("red");
+      body.classList.add("lose-body")
+
     }
   });
 }
@@ -135,6 +140,8 @@ function newGame(stampGrill, numberOfSquares, difficultyGenerator) {
 // dichiarazione costanti associate ad elementi del DOM
 
 const stampHtml = document.querySelector(".hook-js");
+
+const body = document.getElementById("body");
 
 const button1 = document.getElementById("js-btn-hook1");
 
