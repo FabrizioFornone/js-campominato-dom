@@ -73,8 +73,8 @@ function easyBoxGenerator(container, insideNumber) {
       this.classList.add("azure");
     } else {
       this.classList.add("red");
-      body.classList.add("lose-body")
-      loseMsg.classList.remove("hide")
+      body.classList.add("lose-body");
+      loseMsg.classList.remove("hide");
     }
   });
 }
@@ -98,8 +98,8 @@ function mediumBoxGenerator(container, insideNumber) {
       this.classList.add("azure");
     } else {
       this.classList.add("red");
-      body.classList.add("lose-body")
-      loseMsg.classList.remove("hide")
+      body.classList.add("lose-body");
+      loseMsg.classList.remove("hide");
     }
   });
 }
@@ -123,8 +123,8 @@ function hardBoxGenerator(container, insideNumber) {
       this.classList.add("azure");
     } else {
       this.classList.add("red");
-      body.classList.add("lose-body")
-      loseMsg.classList.remove("hide")
+      body.classList.add("lose-body");
+      loseMsg.classList.remove("hide");
     }
   });
 }
@@ -152,6 +152,8 @@ const button2 = document.getElementById("js-btn-hook2");
 
 const button3 = document.getElementById("js-btn-hook3");
 
+const loseButton = document.getElementById("js-btn-lose");
+
 // button1 genera ciclo for per creare griglia facile
 
 button1.addEventListener("click", function () {
@@ -168,4 +170,10 @@ button2.addEventListener("click", function () {
 
 button3.addEventListener("click", function () {
   newGame(stampHtml, 49, hardBoxGenerator);
+});
+
+// Evento per tentare un'altra partita
+
+loseButton.addEventListener("click", function () {
+  window.location.reload();
 });
