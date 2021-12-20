@@ -16,15 +16,6 @@ La partita termina quando il giocatore clicca su una bomba o raggiunge
 Al termine della partita il software deve comunicare il punteggio, 
 cioè il numero di volte che l’utente ha cliccato su una cella che non era una bomba. */
 
-// funziona che genera una bomba con un numero da 1 a squaresNumbers
-
-function randomBomb(squaresNumbers) {
-  const result = Math.floor(Math.random() * (squaresNumbers + 1 - 1)) + 1;
-  // Return per poterla portare fuori
-
-  return result;
-}
-
 // Funzione di generazione quadrati easy, "container" sarà il mio stampHtml
 
 function easyBoxGenerator(container, insideNumber, difficultyNumber) {
@@ -39,31 +30,15 @@ function easyBoxGenerator(container, insideNumber, difficultyNumber) {
   container.classList.remove("width-350");
   container.classList.remove("width-450");
   container.classList.add("width-500");
-  //inserisco in un array vuoto 16 bombe casuali non ripetute
-  let arrayNumbers = [];
-  /* fai il ciclo FINCHE' l'array non diventa
-    di 15 elementi + 1 elemento extra aggiunto sotto e si chiude */
-  while (arrayNumbers.length < 16) {
-    // dichiaro cost random associata alla funzione
-    let random = randomBomb(difficultyNumber);
-    // Se l'array non include questo numero
-    if (!arrayNumbers.includes(random)) {
-      // PUSHALO nell'array
-      arrayNumbers.push(random);
-    }
-  }
   newBox.addEventListener("click", function () {
-    if (!arrayNumbers.includes(insideNumber)) {
-      this.classList.add("azure");
-    } else {
-      this.classList.add("red");
-    }
+    console.log(this);
+    this.classList.add("azure");
   });
 }
 
 // Funzione di generazione quadrati medium, "container" sarà il mio stampHtml
 
-function mediumBoxGenerator(container, insideNumber, difficultyNumber) {
+function mediumBoxGenerator(container, insideNumber) {
   // creo un elemento div dal JS
   const newBox = document.createElement("div");
   // Do a lui la classe square che ho nel css
@@ -75,31 +50,15 @@ function mediumBoxGenerator(container, insideNumber, difficultyNumber) {
   container.classList.remove("width-350");
   container.classList.remove("width-500");
   container.classList.add("width-450");
-  //inserisco in un array vuoto 16 bombe casuali non ripetute
-  let arrayNumbers = [];
-  /* fai il ciclo FINCHE' l'array non diventa
-    di 15 elementi + 1 elemento extra aggiunto sotto e si chiude */
-  while (arrayNumbers.length < 16) {
-    // dichiaro cost random associata alla funzione
-    const random = randomBomb(difficultyNumber);
-    // Se l'array non include questo numero
-    if (!arrayNumbers.includes(random)) {
-      // PUSHALO nell'array
-      arrayNumbers.push(random);
-    }
-  }
   newBox.addEventListener("click", function () {
-    if (!arrayNumbers.includes(insideNumber)) {
-      this.classList.add("azure");
-    } else {
-      this.classList.add("red");
-    }
+    console.log(this);
+    this.classList.add("azure");
   });
 }
 
 // Funzione di generazione quadrati medium, "container" sarà il mio stampHtml
 
-function hardBoxGenerator(container, insideNumber, difficultyNumber) {
+function hardBoxGenerator(container, insideNumber) {
   // creo un elemento div dal JS
   const newBox = document.createElement("div");
   // Do a lui la classe square che ho nel css
@@ -111,35 +70,44 @@ function hardBoxGenerator(container, insideNumber, difficultyNumber) {
   container.classList.remove("width-500");
   container.classList.remove("width-450");
   container.classList.add("width-350");
-  //inserisco in un array vuoto 16 bombe casuali non ripetute
-  let arrayNumbers = [];
-  /* fai il ciclo FINCHE' l'array non diventa
-    di 15 elementi + 1 elemento extra aggiunto sotto e si chiude */
-  while (arrayNumbers.length < 16) {
-    // dichiaro cost random associata alla funzione
-    const random = randomBomb(difficultyNumber);
-    // Se l'array non include questo numero
-    if (!arrayNumbers.includes(random)) {
-      // PUSHALO nell'array
-      arrayNumbers.push(random);
-    }
-  }
   newBox.addEventListener("click", function () {
-    if (!arrayNumbers.includes(insideNumber)) {
-      this.classList.add("azure");
-    } else {
-      this.classList.add("red");
-    }
+    console.log(this);
+    this.classList.add("azure");
   });
 }
+
 
 // funzione "newGame" generator, "difficultyGenerator è a sua volta una funzione"
 
 function newGame(stampGrill, numberOfSquares, difficultyGenerator) {
   stampGrill.innerHTML = "";
   for (i = 1; i <= numberOfSquares; i++) {
-    difficultyGenerator(stampGrill, i, numberOfSquares);
+    difficultyGenerator(stampGrill, i);
   }
+}
+
+// funziona che genera una bomba con un numero da 1 a squaresNumbers
+
+function randomNumber(squaresNumbers) {
+  const randomN = Math.floor(Math.random() * (squaresNumbers + 1 - 1)) + 1;
+  return randomN;
+}
+
+function createBombs(squaresNumbers) {
+  // dichiaro un array vuoto
+  let arrayBombs = [];
+  /* fai il ciclo FINCHE' l'array non diventa
+    di 15 elementi + 1 elemento extra aggiunto sotto e si chiude */
+  while (arrayBombs.length < 16) {
+    // dichiaro cost random associata alla funzione
+    const redBomb = randomNumber(squaresNumbers);
+    // Se l'array non include questo numero
+    if (!arrayBombs.includes(redBomb)) {
+      // PUSHALO nell'array
+      arrayBombs.push(redBomb);
+    }
+  }
+  console.log(arrayBombs);
 }
 
 // dichiarazione costanti associate ad elementi del DOM
@@ -156,16 +124,19 @@ const button3 = document.getElementById("js-btn-hook3");
 
 button1.addEventListener("click", function () {
   newGame(stampHtml, 100, easyBoxGenerator);
+  createBombs(100);
 });
 
 // button2 genera ciclo for per creare griglia media
 
 button2.addEventListener("click", function () {
   newGame(stampHtml, 81, mediumBoxGenerator);
+  createBombs(81);
 });
 
 // button3 genera ciclo for per creare griglia difficile
 
 button3.addEventListener("click", function () {
   newGame(stampHtml, 49, hardBoxGenerator);
+  createBombs(49);
 });
