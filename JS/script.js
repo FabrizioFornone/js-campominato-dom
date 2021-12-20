@@ -74,6 +74,7 @@ function easyBoxGenerator(container, insideNumber) {
     } else {
       this.classList.add("red");
       body.classList.add("lose-body")
+      loseMsg.classList.remove("hide")
     }
   });
 }
@@ -98,7 +99,7 @@ function mediumBoxGenerator(container, insideNumber) {
     } else {
       this.classList.add("red");
       body.classList.add("lose-body")
-
+      loseMsg.classList.remove("hide")
     }
   });
 }
@@ -123,7 +124,7 @@ function hardBoxGenerator(container, insideNumber) {
     } else {
       this.classList.add("red");
       body.classList.add("lose-body")
-
+      loseMsg.classList.remove("hide")
     }
   });
 }
@@ -142,6 +143,8 @@ function newGame(stampGrill, numberOfSquares, difficultyGenerator) {
 const stampHtml = document.querySelector(".hook-js");
 
 const body = document.getElementById("body");
+
+const loseMsg = document.querySelector(".lose-msg");
 
 const button1 = document.getElementById("js-btn-hook1");
 
