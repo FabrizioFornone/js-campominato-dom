@@ -114,7 +114,7 @@ function mediumBoxGenerator(container, insideNumber) {
   });
 }
 
-// Funzione di generazione quadrati medium, "container" sarà il mio stampHtml
+// Funzione di generazione quadrati hard, "container" sarà il mio stampHtml
 
 function hardBoxGenerator(container, insideNumber) {
   // creo un elemento div dal JS
